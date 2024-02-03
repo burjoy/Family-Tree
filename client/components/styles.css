@@ -1,0 +1,32 @@
+.person {
+    width: 120px;
+    height: 120px;
+    border-radius: 10%;
+    background-color: #4a5568;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .person img {
+    max-width: 100%;
+    max-height: 60%;
+    border-radius: 50%;
+    margin-top: 10%;
+  }
+
+  .connection {
+    position: absolute;
+    background-color: #2d3748;
+    width: 4px;
+    height: 80px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .person-name {
+    margin-top: 8px;
+    color: white;
+  }
