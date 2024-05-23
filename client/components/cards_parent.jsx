@@ -24,9 +24,12 @@ function Cards({nama, pasangan}){
     <>
     <div className="flex justify-center space-x-8">
       <div className="person hover:cursor-pointer p-5 rounded-md">
-        <img src="https://placehold.co/100x100" alt="Father" />
+        <img src="https://drive.google.com/thumbnail?id=1gzSe6eG7zpAXl1KYo9Zm7UajEuEzTgQu" alt="Father" className="w-[150px] h-[150px]"/>
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{nama}</div>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" >
+          Hapus dari KK
+        </button>
       </div>
 
       {/* tar tambahin option kalo si orang udah nikah apa belom, kyk di project 6 */}
@@ -36,6 +39,9 @@ function Cards({nama, pasangan}){
         <img src="https://placehold.co/100x100" alt="Mother" />
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{pasangan}</div>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm">
+            Hapus dari KK
+          </button>
       </div>
       }
     </div>
