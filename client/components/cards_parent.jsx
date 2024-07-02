@@ -28,7 +28,7 @@ function Cards({nama, pasangan}){
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{nama}</div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" >
-          Hapus dari KK
+          Ganti Nama
         </button>
       </div>
 
@@ -40,7 +40,7 @@ function Cards({nama, pasangan}){
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{pasangan}</div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm">
-            Hapus dari KK
+            Ganti Nama
           </button>
       </div>
       }

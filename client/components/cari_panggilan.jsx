@@ -1,8 +1,17 @@
 import { useState, useRef } from "react";
+import Loading from "./loadingButton";
 
 function CariPanggilan(){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const timeOut = setTimeout(() => {setLoading(false)}, 10000);
+    const handleLoading = () => {
+        setLoading(true);
+        timeOut;
+        // isCalled(true);
+        // setLoading(false);
+    }
     const handleClick = (e) => {
         console.log(formRef.current)
         if (formRef.current && formRef.current.contains(e.target)) {
@@ -33,12 +42,13 @@ function CariPanggilan(){
                             {/* <p>Urutan Anak</p>
                             <input type="text" className="border rounded-lg text-center focus:border-red-600" /> */}
                         </form>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={handleLoading}>
                             Cari Panggilan
                         </button>
                     </div>
                 </div>
             )}
+            {loading && <Loading />}
         </>
     );
 }

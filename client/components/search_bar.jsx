@@ -9,6 +9,7 @@ function SearchBar(){
     const handleLoading = () => {
         setLoading(true);
         timeOut;
+        // isCalled(true);
         // setLoading(false);
     }
     useEffect(() => {
@@ -27,11 +28,11 @@ function SearchBar(){
     return(
         <>
         <div className="text-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm"  onClick={handleLoading}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm"  onClick={handleSubmit}>
               Cari Panggilan
             </button>
         </div>
-        {loading && <Loading />}
+        {/* {loading && <Loading />} */}
         {called && <CariPanggilan />}
         </>
     )
