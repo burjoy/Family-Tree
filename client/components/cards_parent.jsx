@@ -27,6 +27,7 @@ function Cards({nama, pasangan}){
         <img src="https://drive.google.com/thumbnail?id=1gzSe6eG7zpAXl1KYo9Zm7UajEuEzTgQu" alt="Father" className="w-[150px] h-[150px]"/>
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{nama}</div>
+        <div className="person-name text-center">Orang Tua</div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" >
           Ganti Nama
         </button>
@@ -39,6 +40,7 @@ function Cards({nama, pasangan}){
         <img src="https://placehold.co/100x100" alt="Mother" />
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{pasangan}</div>
+        <div className="person-name text-center">Orang Tua</div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm">
             Ganti Nama
           </button>
