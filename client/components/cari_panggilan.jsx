@@ -1,10 +1,11 @@
 import { useState, useRef } from "react";
 import Loading from "./loadingButton";
+import PopUp from "./popup_panggilan";
 
 function CariPanggilan(){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState();
     const timeOut = setTimeout(() => {setLoading(false)}, 10000);
     const handleLoading = () => {
         setLoading(true);
@@ -30,7 +31,7 @@ function CariPanggilan(){
         <>
             {click && (
              <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50" onClick={handleClick}>
-                    <div ref={formRef} className="bg-white rounded-md p-4">
+                    <div ref={formRef} className="bg-white rounded-md p-4 text-center">
                         <h2 className="text-center">Form pencarian panggilan</h2>
                         <form action="">
                             <p>Nama</p>
@@ -49,6 +50,7 @@ function CariPanggilan(){
                 </div>
             )}
             {loading && <Loading />}
+            {loading == false && <PopUp />}
         </>
     );
 }
