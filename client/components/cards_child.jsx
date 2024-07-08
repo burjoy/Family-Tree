@@ -78,7 +78,7 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
             </button>
           </div>
       </div>
-      {add_anak && <AddAnak />}
+      {add_anak && <AddAnak generasi={gens} parent={orang_tua}/>}
       {isAdderCall && <Adder />}
     </>
   );
