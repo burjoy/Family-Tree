@@ -32,7 +32,7 @@ function CariPanggilan(){
             {click && (
              <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50" onClick={handleClick}>
                     <div ref={formRef} className="bg-white rounded-md p-4 text-center">
-                        <h2 className="text-center">Form pencarian panggilan</h2>
+                        <h2 className="text-center font-bold mb-4">Form pencarian panggilan</h2>
                         <form action="">
                             <p>Nama</p>
                             <input type="text" className="border rounded-lg text-center focus:border-red-600"/>
