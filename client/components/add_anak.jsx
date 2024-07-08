@@ -28,7 +28,7 @@ function AddAnak({generasi, parent}){
 
     const patchKeluarga = async() => {
         try {
-            const response = await patch_anggota_keluarga;
+            const response = await patch_anggota_keluarga(parent, nama_anak);
             console.log(response);
         } catch (error) {
             console.log(error);
@@ -62,7 +62,7 @@ function AddAnak({generasi, parent}){
                             <p>Urutan Anak</p>
                             <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleUrutanAnak(parseInt(e.target.value))}/>
                         </form>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={patchKeluarga}>
                             Submit Hasil
                         </button>
                     </div>
