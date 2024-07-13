@@ -12,7 +12,7 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
   // const opt = [];
   const gens = generation + 1;
   const [isAdderCall, setAdderCalled] = useState(null);
-  const [add_anak, set_add_anak] = useState(null);
+  // const [add_anak, set_add_anak] = useState(null);
 
   useEffect(() => {
     // setAdderCalled(isAdderCall);
@@ -20,27 +20,27 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
     if(isAdderCall == false){
       setAdderCalled(true);
     }
-    if(add_anak == false){
-      set_add_anak(true);
-    }
-  }, [isAdderCall, add_anak]);
+    // if(add_anak == false){
+    //   set_add_anak(true);
+    // }
+  }, [isAdderCall]);
 
   const handleClick = () => {
     console.log("ba");
     setAdderCalled(() => (!isAdderCall));
   }
 
-  const handleAddAnak = () => {
-    console.log("ba");
-    set_add_anak(() => (!add_anak));
-  }
+  // const handleAddAnak = () => {
+  //   console.log("ba");
+  //   set_add_anak(() => (!add_anak));
+  // }
   console.log(anaks);
   return (
     <>
       <div className="grid grid-cols-2 gap-4 mt-9 justify-items-center md:grid-cols-5">
         {anaks?.map((urutan, index) => (
           <>
-          <div className="person hover:cursor-pointer p-5 rounded-md" key={urutan._id}>
+          <div className="person hover:cursor-pointer p-5 rounded-md" key={index}>
             <img src="https://placehold.co/100x100" alt="Daughter"/>
             {/* <!-- <div className="connection"></div> --> */}
             <div className="person-name text-center">{urutan}
@@ -68,18 +68,18 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
           </div>
         </>
         ))}
-          <div className="person hover:cursor-pointer p-7 rounded-md">
+          {/* <div className="person hover:cursor-pointer p-7 rounded-md"> */}
             {/* <img src="https://placehold.co/100x100" alt="Daughter"/> */}
             {/* <!-- <div className="connection"></div> --> */}
-            <div className="person-name text-center">Tambah Anak
-            </div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" onClick={handleAddAnak}>
-              Add Anak
-            </button>
-          </div>
+            {/* <div className="person-name text-center">Tambah Anak */}
+            {/* </div> */}
+            {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" onClick={handleAddAnak}> */}
+              {/* Add Anak */}
+            {/* </button> */}
+          {/* </div> */}
       </div>
-      {add_anak && <AddAnak generasi={gens} parent={orang_tua}/>}
-      {isAdderCall && <Adder />}
+      {/* {add_anak && <AddAnak generasi={gens} parent={orang_tua}/>}
+      {isAdderCall && <Adder />} */}
     </>
   );
 }
