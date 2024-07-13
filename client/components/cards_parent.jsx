@@ -13,7 +13,7 @@ function Cards({nama, pasangan}){
     //   istri = nama;
     //   suami = pasangan;
     // }
-    console.log(pasangan);
+    // console.log(pasangan);
     if(pasangan == "" || pasangan == undefined){
       menikah = 0;
     }
