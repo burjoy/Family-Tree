@@ -9,12 +9,14 @@ import { Utama } from '../components/utama.jsx'
 // import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
     <App />
-    {/* <Cards />
-    <Card_child /> */}
-    {/* <Utama /> */}
-    {/* <AppRouter /> */}
+  {/* <Cards />}
+  //   {<Card_child /> */}
+  {/* <Utama /> */}
+  {/* <AppRouter /> */}
     <SearchBar />
-  </React.StrictMode>,
+  </>
+  // </React.StrictMode>,
 )
