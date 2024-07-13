@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import post_anggota_keluarga from "../../server/apis/post_anggota_keluarga";
 import patch_anggota_keluarga from "../../server/apis/patch_anggota_keluarga";
 
-function AddAnak({generasi, parent}){
+function AddAnak({generasi, parent, anggota_baru}){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
     const [nama_anak, set_nama_anak] = useState("");
@@ -29,7 +29,8 @@ function AddAnak({generasi, parent}){
     const patchKeluarga = async() => {
         try {
             const response = await patch_anggota_keluarga(parent, nama_anak);
-            console.log(response);
+            // console.log(response);
+            anggota_baru(response);
         } catch (error) {
             console.log(error);
         }
