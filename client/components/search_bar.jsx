@@ -4,18 +4,18 @@ import Loading from "./loadingButton";
 
 function SearchBar(){
     const [called, isCalled] = useState(null); //ini nanti diganti jadi [called, setCalled] = useState('');
-    const [loading, setLoading] = useState(false);
-    const timeOut = setTimeout(() => {setLoading(false)}, 10000);
-    const handleLoading = () => {
-        setLoading(true);
-        timeOut;
-        // isCalled(true);
-        // setLoading(false);
-    }
+    // const [loading, setLoading] = useState(false);
+    // const timeOut = setTimeout(() => {setLoading(false)}, 10000);
+    // const handleLoading = () => {
+    //     setLoading(true);
+    //     timeOut;
+    //     // isCalled(true);
+    //     // setLoading(false);
+    // }
     useEffect(() => {
         // setAdderCalled(isAdderCall);
         console.log(called);
-        if(called == false){
+        if(called === false){
           isCalled(true);
         }
       }, [called]);
