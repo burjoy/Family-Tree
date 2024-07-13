@@ -11,7 +11,9 @@ async function patch_anggota_keluarga(orangTua, anak){
             })
         }
         const response = await fetch('http://localhost:3000/family/patchFamily', pesan_request);
-        console.log(response);
+        const hasil = response.json();
+        console.log(hasil);
+        return hasil
     } catch (error) {
         console.log(error);
     }
