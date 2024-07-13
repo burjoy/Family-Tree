@@ -6,10 +6,11 @@ function CariPanggilan(){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
     const [loading, setLoading] = useState();
-    const timeOut = setTimeout(() => {setLoading(false)}, 10000);
+    // const timeOut = setTimeout(() => {setLoading(false)}, 1000);
     const handleLoading = () => {
         setLoading(true);
-        timeOut;
+        // timeOut;
+        setTimeout(() => {setLoading(false)}, 1000);
         // isCalled(true);
         // setLoading(false);
     }
@@ -23,6 +24,7 @@ function CariPanggilan(){
         }
         console.log("clicked");
     };
+    console.log(`Loading state: ${loading}`);
 
     // const inputHandle = (e) => {
     //     console.log("test");
@@ -50,7 +52,7 @@ function CariPanggilan(){
                 </div>
             )}
             {loading && <Loading />}
-            {loading == false && <PopUp />}
+            {loading === false && <PopUp />}
         </>
     );
 }
