@@ -6,6 +6,8 @@ function AddAnak({generasi, parent, anggota_baru}){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
     const [nama_anak, set_nama_anak] = useState("");
+    const [nama_pasangan, set_nama_pasangan] = useState("");
+    const [married, isMarried] = useState(null);
     const [urutan_anak, set_urutan_anak] = useState();
 
     const handleNamaAnak = (name) => {
@@ -13,8 +15,19 @@ function AddAnak({generasi, parent, anggota_baru}){
         console.log(nama_anak);
     }
 
+    const handleNamaPasangan = (pasangan) => {
+        set_nama_pasangan(pasangan);
+        console.log(nama_pasangan);
+    }
+
     const handleUrutanAnak = (urutan) => {
         set_urutan_anak(urutan);
+    }
+
+    const inputHandle = (e) => {
+        isMarried(e.target.value);
+        console.log(married);
+        console.log(typeof married);
     }
 
     const submitHasilKeluarga = async() => {
@@ -62,6 +75,17 @@ function AddAnak({generasi, parent, anggota_baru}){
 
                             <p>Urutan Anak</p>
                             <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleUrutanAnak(parseInt(e.target.value))}/>
+
+                            <p>Status Menikah</p>
+                            <select name="status" id="" className="border rounded-lg text-center focus:border-red-600" onChange={inputHandle}>
+                                {(married == null) ? (<option></option>) : (<></>)}
+                                <option value="1">Sudah</option>
+                                <option value="0">Belum</option>
+                            </select>
+                            {married == 1 && (<>
+                                <p>Nama Pasangan</p>
+                                <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleNamaPasangan(e.target.value)}/>
+                            </>)}
                         </form>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={patchKeluarga}>
                             Submit Hasil
