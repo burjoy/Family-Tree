@@ -8,7 +8,7 @@ function AddAnak({generasi, parent, anggota_baru}){
     const [nama_anak, set_nama_anak] = useState("");
     const [nama_pasangan, set_nama_pasangan] = useState("");
     const [married, isMarried] = useState(null);
-    const [urutan_anak, set_urutan_anak] = useState();
+    const [tanggal_lahir, set_tanggal_lahir] = useState();
 
     const handleNamaAnak = (name) => {
         set_nama_anak(name);
@@ -20,8 +20,9 @@ function AddAnak({generasi, parent, anggota_baru}){
         console.log(nama_pasangan);
     }
 
-    const handleUrutanAnak = (urutan) => {
-        set_urutan_anak(urutan);
+    const handleTanggalLahirAnak = (tanggal) => {
+        set_tanggal_lahir(tanggal);
+        console.log(tanggal_lahir);
     }
 
     const inputHandle = (e) => {
@@ -73,8 +74,8 @@ function AddAnak({generasi, parent, anggota_baru}){
                             <p>Nama Anak</p>
                             <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleNamaAnak(e.target.value)}/>
 
-                            <p>Urutan Anak</p>
-                            <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleUrutanAnak(parseInt(e.target.value))}/>
+                            <p>Tanggal Lahir</p>
+                            <input type="date" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleTanggalLahirAnak(e.target.value)}/>
 
                             <p>Status Menikah</p>
                             <select name="status" id="" className="border rounded-lg text-center focus:border-red-600" onChange={inputHandle}>
