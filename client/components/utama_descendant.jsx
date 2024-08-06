@@ -32,8 +32,16 @@ function Utama_descendant(){
     useEffect(() => {
         // console.log(name?.length);
         console.log(gen);
+        console.log(nama);
         const hasil = async () => {
-            const keluarga = await get_anggota_keluarga_spesifik(gen, nama);
+            try {
+                const keluarga = await get_anggota_keluarga_spesifik(gen, nama);
+                console.log(keluarga);
+                pilihKeluarga(keluarga[0]);
+                console.log(loadKeluarga);
+            } catch (error) {
+                console.log(error);
+            }
         //   console.log(keluarga[0].pasangan);
         //dibawah ini buat konsep pencarian id keluarga
         //   console.log(keluarga[0].ID);
@@ -42,9 +50,6 @@ function Utama_descendant(){
         //   const generasi = id.slice(1, pos);
         //   const anak = id.slice(pos+1);
         //   console.log(anak);
-            console.log(keluarga);
-            pilihKeluarga(keluarga[0]);
-            console.log(loadKeluarga);
         //   return keluarga.json;
         }
         hasil();
@@ -56,7 +61,7 @@ function Utama_descendant(){
         if(isAdderCall == false){
             setAdderCalled(true);
         }
-    }, [addAnggotaBaru]);
+    }, [addAnggotaBaru, gen, nama]);
     useEffect(() => {
         if(add_anak == false){
             set_add_anak(true);
