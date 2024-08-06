@@ -9,6 +9,7 @@ function AddAnak({generasi, parent, anggota_baru}){
     const [nama_pasangan, set_nama_pasangan] = useState("");
     const [married, isMarried] = useState(null);
     const [tanggal_lahir, set_tanggal_lahir] = useState();
+    const [jenis_kelamin, set_jenis_kelamin] = useState(null);
 
     const handleNamaAnak = (name) => {
         set_nama_anak(name);
@@ -23,6 +24,7 @@ function AddAnak({generasi, parent, anggota_baru}){
     const handleTanggalLahirAnak = (tanggal) => {
         set_tanggal_lahir(tanggal);
         console.log(tanggal_lahir);
+        console.log(`tanggal lahir type: ${typeof tanggal_lahir}`);
     }
 
     const inputHandle = (e) => {
@@ -31,20 +33,31 @@ function AddAnak({generasi, parent, anggota_baru}){
         console.log(typeof married);
     }
 
-    const submitHasilKeluarga = async() => {
+    const gender_handle = (e) => {
+        set_jenis_kelamin(e.target.value);
+        console.log(jenis_kelamin);
+    }
+
+    const patchKeluarga = async() => {
         try {
-            const response = await post_anggota_keluarga;
-            console.log(response);
+            if(nama_anak == "" || nama_anak == null){
+                alert("Nama anak harus diisi");
+            }
+            else{
+                const response = await patch_anggota_keluarga(parent, nama_anak);
+                // console.log(response);
+                anggota_baru(response);
+            }
         } catch (error) {
             console.log(error);
         }
     }
 
-    const patchKeluarga = async() => {
+    const postKeluarga = async() => {
         try {
-            const response = await patch_anggota_keluarga(parent, nama_anak);
-            // console.log(response);
-            anggota_baru(response);
+            console.log("HEY");
+            const response = await post_anggota_keluarga(parent, nama_anak, generasi, married, nama_pasangan, jenis_kelamin, tanggal_lahir);
+            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -77,6 +90,13 @@ function AddAnak({generasi, parent, anggota_baru}){
                             <p>Tanggal Lahir</p>
                             <input type="date" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleTanggalLahirAnak(e.target.value)}/>
 
+                            <p>Jenis Kelamin</p>
+                            <select name="status" id="" className="border rounded-lg text-center focus:border-red-600" onChange={gender_handle}>
+                                {(jenis_kelamin == null) ? (<option></option>) : (<></>)}
+                                <option value="1">Laki-laki</option>
+                                <option value="0">Perempuan</option>
+                            </select>
+
                             <p>Status Menikah</p>
                             <select name="status" id="" className="border rounded-lg text-center focus:border-red-600" onChange={inputHandle}>
                                 {(married == null) ? (<option></option>) : (<></>)}
@@ -88,7 +108,7 @@ function AddAnak({generasi, parent, anggota_baru}){
                                 <input type="text" className="border rounded-lg text-center focus:border-red-600" onChange={e => handleNamaPasangan(e.target.value)}/>
                             </>)}
                         </form>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={patchKeluarga}>
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" onClick={() => {patchKeluarga();postKeluarga()}}>
                             Submit Hasil
                         </button>
                     </div>
