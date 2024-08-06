@@ -8,7 +8,8 @@ const format_keluarga = new mongoose.Schema(
         menikah: Boolean,
         anak: Array,
         generasi: Number,
-        umur: Number
+        ID: String,
+        tanggal_lahir: Date
     });
 
 const data_personal_keluarga = mongoose.model("keluarga", format_keluarga, "test_drive");
