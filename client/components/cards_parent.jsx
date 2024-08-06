@@ -24,12 +24,12 @@ function Cards({nama, pasangan}){
     <>
     <div className="flex justify-center space-x-8">
       <div className="person hover:cursor-pointer p-5 rounded-md">
-        <img src="https://drive.google.com/thumbnail?id=1gzSe6eG7zpAXl1KYo9Zm7UajEuEzTgQu" alt="Father" className="w-[150px] h-[150px]"/>
+        <img src="https://drive.google.com/thumbnail?id=1gzSe6eG7zpAXl1KYo9Zm7UajEuEzTgQu" alt="Father" className="w-[150px] h-[150px] max-md:w-[75px] max-md:h-[75px]"/>
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{nama}</div>
         <div className="person-name text-center">Orang Tua</div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm" >
-          Ganti Nama
+          Ganti Status
         </button>
       </div>
 
@@ -37,12 +37,12 @@ function Cards({nama, pasangan}){
 
       {menikah == 1 && 
         <div className="person p-5 rounded-md">
-        <img src="https://placehold.co/100x100" alt="Mother" />
+        <img src="https://placehold.co/100x100" alt="Mother" className='max-md:w-[75px] max-md:h-[75px]'/>
         {/* <div className="connection"></div> */}
         <div className="person-name text-center">{pasangan}</div>
         <div className="person-name text-center">Orang Tua</div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3 text-sm">
-            Ganti Nama
+            Ganti Status
           </button>
       </div>
       }
