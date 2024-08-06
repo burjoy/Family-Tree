@@ -19,7 +19,7 @@ const get_anggota_keluarga_spesifik = async(gen, nama) => {
             throw new Error('Error fetching family name');
         }
         console.log(gen);
-        console.log(encodeURI("Si g"));
+        // console.log(encodeURI("Si g"));
         // console.log(new_name);
         const hasil = await response.json();
         console.log(hasil);
