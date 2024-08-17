@@ -31,12 +31,17 @@ function Data_diri({generasi, nama}){
             try {
                 setLoading(true);
                 const keluarga = await get_anggota_keluarga_spesifik(generasi, nama);
-                if(keluarga){
-                    console.log("fetched");
+                if(typeof keluarga[0] !== "undefined"){
+                    console.log(`fetched data ni keluarga: ${keluarga[0]}`);
                     setLoading(false);
                     setDataKeluarga(keluarga);
                 }
+                else{
+                    alert("Data yang Anda ingin cari tidak ada di database");
+                    setLoading(null);
+                }
                 console.log(keluarga);
+                console.log(typeof keluarga);
                 console.log("another process");
             } catch (error) {
                 console.log(error);
