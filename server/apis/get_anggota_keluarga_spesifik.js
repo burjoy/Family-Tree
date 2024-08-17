@@ -9,6 +9,7 @@ const get_anggota_keluarga_spesifik = async(gen, nama) => {
             headers: {
                 'Content-Type': 'application/json'
             },
+            signal: AbortSignal.timeout(1000),
             // body: JSON.stringify({
             //     generasi: gen,
             //     nama: name
@@ -29,6 +30,7 @@ const get_anggota_keluarga_spesifik = async(gen, nama) => {
         return hasil;
     } catch (error) {
         console.log(error);
+        return error
     }
 }
 
