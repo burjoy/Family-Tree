@@ -47,7 +47,7 @@ function Data_diri({generasi, nama}){
     console.log(`Loading state: ${loading}`);
     return(
         <>
-            {click && (
+            {click && loading == false && (
              <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50" onClick={handleClick}>
                     <div ref={formRef} className="bg-white rounded-md p-4 text-center">
                         <h2 className="text-center font-bold mb-4">Form pergantian data</h2>
