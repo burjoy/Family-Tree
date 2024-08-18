@@ -21,7 +21,7 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
   useEffect(() => {
     // setAdderCalled(isAdderCall);
     console.log(status);
-    if(status == false){
+    if(status === false){
       setStatus(true);
     }
     // if(add_anak == false){
@@ -84,7 +84,7 @@ function Card_child({anaks, generation, pilihKeluarga, orang_tua}) {
             {/* </button> */}
           {/* </div> */}
       </div>
-      {status === true && selectedUrutan !== null && (<Data_diri generasi={gens} nama={selectedUrutan}/>)}
+      {status === true && selectedUrutan !== null && (<Data_diri generasi={gens} nama={selectedUrutan} nama_orang_tua={orang_tua}/>)}
       {/* {add_anak && <AddAnak generasi={gens} parent={orang_tua}/>}
       {isAdderCall && <Adder />} */}
     </>
