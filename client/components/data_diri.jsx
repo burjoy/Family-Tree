@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import get_anggota_keluarga_spesifik from "../../server/apis/get_anggota_keluarga_spesifik";
 import Loading from "./loadingButton";
+import { Penghapusan } from "./popup_penghapusan";
 
 function Data_diri({generasi, nama}){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
     const [loading, setLoading] = useState();
+    const [peringatan, setPeringatan] = useState(false);
     const [dataKeluarga, setDataKeluarga] = useState();
     console.log(`Nama yang terpilih: ${nama} dari generasi ${generasi}`);
     // const timeOut = setTimeout(() => {setLoading(false)}, 1000);
@@ -38,6 +40,7 @@ function Data_diri({generasi, nama}){
                 }
                 else{
                     alert("Data yang Anda ingin cari tidak ada di database");
+                    setPeringatan(true);
                     setLoading(null);
                 }
                 console.log(keluarga);
@@ -73,6 +76,7 @@ function Data_diri({generasi, nama}){
             </div>
             )}
             {loading && <Loading />}
+            {peringatan == true && <Penghapusan />}
         </>
     )
 }
