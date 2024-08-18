@@ -3,7 +3,7 @@ import get_anggota_keluarga_spesifik from "../../server/apis/get_anggota_keluarg
 import Loading from "./loadingButton";
 import { Penghapusan } from "./popup_penghapusan";
 
-function Data_diri({generasi, nama}){
+function Data_diri({generasi, nama, nama_orang_tua}){
     const formRef = useRef(null);
     const [click, isClick] = useState(true);
     const [loading, setLoading] = useState();
@@ -39,7 +39,7 @@ function Data_diri({generasi, nama}){
                     setDataKeluarga(keluarga);
                 }
                 else{
-                    alert("Data yang Anda ingin cari tidak ada di database");
+                    // alert("Data yang Anda ingin cari tidak ada di database");
                     setPeringatan(true);
                     setLoading(null);
                 }
@@ -76,7 +76,7 @@ function Data_diri({generasi, nama}){
             </div>
             )}
             {loading && <Loading />}
-            {peringatan == true && <Penghapusan />}
+            {peringatan === true && <Penghapusan parent={nama_orang_tua} anak={nama}/>}
         </>
     )
 }
