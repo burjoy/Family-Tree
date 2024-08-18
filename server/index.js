@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const getFamily = require('./controller/getFamilyGen');
-const { post_anggota_keluarga, patch_anggota_keluarga } = require('./controller/postAnggotaKeluarga');
+const { post_anggota_keluarga, patch_anggota_keluarga, delete_anggota_keluarga } = require('./controller/postAnggotaKeluarga');
 
 const port = 3000;
 
@@ -25,6 +25,7 @@ app.post('/family', getFamily.getKeluarga);
 app.post('/family/:gen/:names', getFamily.getKeluargaSpesifik);
 app.post('/family/postFamily', post_anggota_keluarga);
 app.post('/family/patchFamily', patch_anggota_keluarga);
+app.post('/family/deleteFamily', delete_anggota_keluarga);
 
 app.listen(port, () => {
     console.log(`Server berjalan di ${port}`);
